@@ -2,26 +2,8 @@ package login.demo.login.domain.dto;
 
 public class Session {
 
-    private int id;
-    private int userId;  // Referencia al ID del usuario
-    private String token; // Token de sesión
-    private long expiration; // Tiempo de expiración de la sesión
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+    private String token;      // Token de sesión
+    private long expiration;   // Tiempo de expiración de la sesión
 
     public String getToken() {
         return token;

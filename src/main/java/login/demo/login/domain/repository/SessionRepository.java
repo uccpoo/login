@@ -1,11 +1,12 @@
 package login.demo.login.domain.repository;
+import java.util.List;
 
-import login.demo.login.infraestructure.entities.Session;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import login.demo.login.domain.dto.session;
 
-@Repository
-public interface SessionRepository extends JpaRepository<Session, Long> {
-    // Aquí puedes agregar métodos específicos si es necesario
-    Session findByToken(String token);
+public interface UserRepository {
+    List<session> getAll();
+    
 }
+
+
+

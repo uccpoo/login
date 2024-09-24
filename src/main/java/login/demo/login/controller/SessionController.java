@@ -1,26 +1,31 @@
+package login.demo.login.controller;
+
+import login.demo.login.domain.dto.Session;
+import login.demo.login.domain.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/auth")
-public class AuthController {
+@RequestMapping("/sessions")
+public class SessionController {
 
     @Autowired
     private SessionService sessionService;
 
-    @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequest) {
-        try {
-            // Llama al servicio para crear una sesión y obtener el token
-            SessionTokenDTO sessionToken = sessionService.createSession(loginRequest.getUsername(), loginRequest.getPassword());
-            
-            // Crea la respuesta con el token JWT
-            LoginResponseDTO response = new LoginResponseDTO(sessionToken.getToken());
-            return ResponseEntity.ok(response);
-        } catch (RuntimeException e) {
-            // Maneja errores de autenticación (por ejemplo, credenciales inválidas)
-            return ResponseEntity.status(401).body(new LoginResponseDTO("Invalid credentials")); // Puedes personalizar la respuesta
-        }
+    @GetMapping("/all")
+    public List<Session> getAll() {
+        return sessionService.getAll();
+    }
+
+    @PostMapping("/create")
+    public void createSession(@RequestBody Session session) {
+        sessionService.createSession(session);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteSession(@PathVariable int id) {
+        sessionService.deleteSession(id);
     }
 }

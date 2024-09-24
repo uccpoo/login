@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: sistem_roles
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.0.39
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,32 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `permission`
---
-
-DROP TABLE IF EXISTS `permission`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `permission` (
-  `Permission_ID` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `date_create` date DEFAULT NULL,
-  `assignment_date` date DEFAULT NULL,
-  PRIMARY KEY (`Permission_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `permission`
---
-
-LOCK TABLES `permission` WRITE;
-/*!40000 ALTER TABLE `permission` DISABLE KEYS */;
-/*!40000 ALTER TABLE `permission` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `role`
 --
 
@@ -50,9 +24,9 @@ DROP TABLE IF EXISTS `role`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role` (
   `Role_ID` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `date_create` date DEFAULT NULL,
-  `assignment_date` date DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `date_create` datetime DEFAULT NULL,
+  `assignment_date` datetime DEFAULT NULL,
   PRIMARY KEY (`Role_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -67,34 +41,6 @@ LOCK TABLES `role` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `role_permission`
---
-
-DROP TABLE IF EXISTS `role_permission`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `role_permission` (
-  `Role_ID` int NOT NULL,
-  `Permission_ID` int NOT NULL,
-  `date_create` date DEFAULT NULL,
-  `assignment_date` date DEFAULT NULL,
-  PRIMARY KEY (`Role_ID`,`Permission_ID`),
-  KEY `Permission_ID` (`Permission_ID`),
-  CONSTRAINT `role_permission_ibfk_1` FOREIGN KEY (`Role_ID`) REFERENCES `role` (`Role_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `role_permission_ibfk_2` FOREIGN KEY (`Permission_ID`) REFERENCES `permission` (`Permission_ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `role_permission`
---
-
-LOCK TABLES `role_permission` WRITE;
-/*!40000 ALTER TABLE `role_permission` DISABLE KEYS */;
-/*!40000 ALTER TABLE `role_permission` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `session`
 --
 
@@ -104,12 +50,12 @@ DROP TABLE IF EXISTS `session`;
 CREATE TABLE `session` (
   `Session_ID` int NOT NULL AUTO_INCREMENT,
   `User_ID` int DEFAULT NULL,
-  `token` varchar(255) DEFAULT NULL,
-  `date_create` date DEFAULT NULL,
-  `assignment_date` date DEFAULT NULL,
+  `token` varchar(255) NOT NULL,
+  `date_create` datetime DEFAULT NULL,
+  `assignment_date` datetime DEFAULT NULL,
   PRIMARY KEY (`Session_ID`),
   KEY `User_ID` (`User_ID`),
-  CONSTRAINT `session_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `session_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `users` (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -133,15 +79,15 @@ CREATE TABLE `user_role` (
   `User_roleID` int NOT NULL AUTO_INCREMENT,
   `User_ID` int DEFAULT NULL,
   `Role_ID` int DEFAULT NULL,
-  `assigned_by` varchar(50) DEFAULT NULL,
+  `assigned_by` varchar(255) DEFAULT NULL,
   `assigned_at` datetime DEFAULT NULL,
-  `date_create` date DEFAULT NULL,
-  `assignment_date` date DEFAULT NULL,
+  `date_create` datetime DEFAULT NULL,
+  `assignment_date` datetime DEFAULT NULL,
   PRIMARY KEY (`User_roleID`),
   KEY `User_ID` (`User_ID`),
   KEY `Role_ID` (`Role_ID`),
-  CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`Role_ID`) REFERENCES `role` (`Role_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `users` (`UserID`),
+  CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`Role_ID`) REFERENCES `role` (`Role_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -163,11 +109,10 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `UserID` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `role` varchar(50) DEFAULT NULL,
-  `date_create` date DEFAULT NULL,
-  `assignment_date` date DEFAULT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `date_create` datetime DEFAULT NULL,
+  `assignment_date` datetime DEFAULT NULL,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -190,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-19 18:25:59
+-- Dump completed on 2024-09-24 17:46:22

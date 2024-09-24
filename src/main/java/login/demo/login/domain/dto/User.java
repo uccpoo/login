@@ -2,25 +2,21 @@ package login.demo.login.domain.dto;
 
 public class User{
 
-    private int idAuthor;
+    private int idUser;
     private String username;
-    private String role;
 
 
 public int getIdAuthor() {
-    return idAuthor;
+    return idUser;
 }
 public void setIdAuthor(int idAuthor) {
-    this.idAuthor = idAuthor;
+    this.idUser = idAuthor;
 }
 public String getUsername() {
     return username;
 }
 public void setUsername(String name) {
     this.username = username;
-}
-public String getRole() {
-    return role;
 }
 
 }

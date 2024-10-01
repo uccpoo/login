@@ -8,7 +8,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 import login.demo.login.domain.dto.Role;
-import login.demo.login.infraestructure.entities.RoleEntity;
 
 @Mapper(componentModel = "spring")
 public interface RoleMapper {
@@ -17,12 +16,12 @@ public interface RoleMapper {
         @Mapping(source = "role", target = "role"),
         @Mapping(source = "assignmentDate", target = "assignmentDate")
     })
-    Role toRole(RoleEntity roleEntity);
+    Role toRole(Role roleEntity);
 
-    List<Role> toRoles(List<RoleEntity> roleEntities);
+    List<Role> toRoles(List<Role> roleEntities);
 
     @InheritInverseConfiguration
-    RoleEntity toRoleEntity(Role roleDto);
+    Role toRoleEntity(Role roleDto);
     
-    List<RoleEntity> toRoleEntities(List<Role> roleDtos);
+    List<Role> toRoleEntities(List<Role> roleDtos);
 }

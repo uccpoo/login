@@ -46,5 +46,3 @@ public class Role {
         this.dateCreate = dateCreate;
     }
 }
-
-//profe voy a llorar ayuda :v

@@ -6,14 +6,17 @@ public class UserDTO{
     private String username;
 
 
-public int getIdAuthor() {
+public int getIdUser() {
     return idUser;
 }
-public void setIdAuthor(int idAuthor) {
-    this.idUser = idAuthor;
+public void setIdUser(int idUser) {
+    this.idUser = idUser;
 }
 public String getUsername() {
     return username;
 }
 
+public void setUsername(String name) {
+    this.username = username;
+}
 }

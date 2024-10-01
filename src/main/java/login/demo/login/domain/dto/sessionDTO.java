@@ -1,6 +1,6 @@
 package login.demo.login.domain.dto;
 
-public class Session {
+public class sessionDTO {
 
     private String token;      // Token de sesión
     private long expiration;   // Tiempo de expiración de la sesión

@@ -9,22 +9,20 @@ import org.springframework.web.bind.annotation.Mapping;
 
 
 import login.demo.login.domain.dto.User;
-
-import org.mapstruct.Mapping;
+import login.demo.login.domain.dto.UserDTO;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
+
     @Mappings({
-        @Mapping(source = "userID", target= "idUser"),
-        @Mapping(source = "username", target= "username"),
-
-        User toUser(User user);
-        List<User> toUser(List<User> user);
-
-        @InheritInverseConfiguration
-        User toUser(User user);
-        List<User> toUser(List<User> user);
+        @Mapping(source = "UserID", target = "idUser"),
+        @Mapping(source = "username", target = "username"),
     })
-   
+    User toUser(User user);
+    List<User> toUsers(List<User> users);
+
+    @InheritInverseConfiguration
+    User toAutor(User user);
+    List<User> toUsers(List<User> users)
 
 }

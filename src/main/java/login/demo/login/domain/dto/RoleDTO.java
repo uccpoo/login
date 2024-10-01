@@ -1,7 +1,7 @@
 package login.demo.login.domain.dto;
-package login.demo.login.domain.dto;
 
-public class Role {
+
+public class RoleDTO {
 
     private String role;       // Rol del usuario 
     private long assignmentDate;  // Fecha de asignación del rol (en formato de timestamp)

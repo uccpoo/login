@@ -1,6 +1,6 @@
 package login.demo.login.domain.dto;
 
-public class User{
+public class UserDTO{
 
     private int idUser;
     private String username;

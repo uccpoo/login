@@ -7,8 +7,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-import login.demo.login.domain.dto.Session;
-import login.demo.login.infraestructure.entities.session;
+import com.mysql.cj.Session;
+
+import login.demo.login.domain.dto.session;
 
 @Mapper(componentModel = "spring")
 public interface SessionMapper {

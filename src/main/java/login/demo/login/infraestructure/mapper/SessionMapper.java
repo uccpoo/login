@@ -9,7 +9,10 @@ import org.mapstruct.Mappings;
 
 import com.mysql.cj.Session;
 
-import login.demo.login.domain.dto.session;
+import login.demo.login.domain.dto.sessionDTO;
+
+
+
 
 @Mapper(componentModel = "spring")
 public interface SessionMapper {
@@ -18,12 +21,12 @@ public interface SessionMapper {
         @Mapping(source = "token", target = "token"),
         @Mapping(source = "assignmentDate", target = "expiration")
     })
-    Session toSession(session sessionEntity);
+    Session toSession(sessionDTO sessionEntity);
 
-    List<Session> toSessions(List<session> sessionEntities);
+    List<Session> toSessions(List<sessionDTO> sessionEntities);
 
     @InheritInverseConfiguration
     Session toSessionEntity(Session sessionDto);
     
-    List<session> toSessionEntities(List<Session> sessionDtos);
+    List<sessionDTO> toSessionEntities(List<Session> sessionDtos);
 }

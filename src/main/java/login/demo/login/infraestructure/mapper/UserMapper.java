@@ -4,11 +4,11 @@ import java.util.List;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mappings;
-import org.springframework.web.bind.annotation.Mapping;
+import org.mapstruct.Mapping;
 
 
 
-import login.demo.login.domain.dto.User;
+import login.demo.login.infraestructure.entities.User;
 import login.demo.login.domain.dto.UserDTO;
 
 @Mapper(componentModel = "spring")
@@ -18,11 +18,11 @@ public interface UserMapper {
         @Mapping(source = "UserID", target = "idUser"),
         @Mapping(source = "username", target = "username"),
     })
-    User toUser(User user);
-    List<User> toUsers(List<User> users);
+    UserDTO toUserDTO(User user);
+    List<UserDTO> toUsersDTO(List<User> users);
 
     @InheritInverseConfiguration
-    User toAutor(User user);
-    List<User> toUsers(List<User> users)
+    User toAutor(UserDTO userdto);
+    List<User> toUsers(List<UserDTO> usersDTO);
 
 }

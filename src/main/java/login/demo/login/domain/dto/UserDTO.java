@@ -15,8 +15,5 @@ public void setIdAuthor(int idAuthor) {
 public String getUsername() {
     return username;
 }
-public void setUsername(String name) {
-    this.username = username;
-}
 
 }

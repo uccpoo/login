@@ -1,0 +1,26 @@
+package login.demo.login.domain.dto;
+package login.demo.login.domain.dto;
+
+public class Role {
+
+    private String role;       // Rol del usuario 
+    private long assignmentDate;  // Fecha de asignación del rol (en formato de timestamp)
+    
+    // Getters y Setters
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public long getAssignmentDate() {
+        return assignmentDate;
+    }
+
+    public void setAssignmentDate(long assignmentDate) {
+        this.assignmentDate = assignmentDate;
+    }
+}

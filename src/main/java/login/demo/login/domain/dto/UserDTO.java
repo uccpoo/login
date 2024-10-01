@@ -1,0 +1,22 @@
+package login.demo.login.domain.dto;
+
+public class User{
+
+    private int idUser;
+    private String username;
+
+
+public int getIdAuthor() {
+    return idUser;
+}
+public void setIdAuthor(int idAuthor) {
+    this.idUser = idAuthor;
+}
+public String getUsername() {
+    return username;
+}
+public void setUsername(String name) {
+    this.username = username;
+}
+
+}

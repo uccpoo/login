@@ -1,0 +1,26 @@
+Role.java:
+Agregar la anotación @CreationTimestamp al campo dateCreate para que se asigne automáticamente la fecha cuando se cree un nuevo rol.
+
+Session.java:
+El nombre de la clase está en minúsculas, y por convención debería empezar con mayúscula.
+Igual que con Role añadir @CreationTimestamp a dateCreate para manejar automáticamente la fecha de creación.
+
+UserRole.java:
+Están utilizando dos anotaciones @Id en la misma clase para las relaciones con User y Role
+Agregar @CreationTimestamp para el campo dateCreate
+
+Cambiar el nombre de los archivos y clases para que terminen con DTO.
+
+RoleDTO.java:
+Tienen una línea duplicada del paquete: package login.demo.login.domain.dto;
+
+UserDTO.java:
+Existen métodos getIdAuthor() y setIdAuthor()?? , .
+
+
+SessionMapper.java:
+ renombrar la entidad session a Session
+
+UserMapper.java:
+ la anotación @Mappings no está cerrada,
+  hay métodos que parecen estar duplicados.

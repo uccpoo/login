@@ -5,7 +5,6 @@ public class UserDTO{
     private int idUser;
     private String username;
 
-
 public int getIdUser() {
     return idUser;
 }

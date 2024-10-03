@@ -9,7 +9,7 @@ import org.mapstruct.Mappings;
 
 import com.mysql.cj.Session;
 
-import login.demo.login.domain.dto.sessionDTO;
+import login.demo.login.domain.dto.SessionDTO;
 
 
 
@@ -21,12 +21,12 @@ public interface SessionMapper {
         @Mapping(source = "token", target = "token"),
         @Mapping(source = "assignmentDate", target = "expiration")
     })
-    Session toSession(sessionDTO sessionEntity);
+    Session toSession(SessionDTO sessionEntity);
 
-    List<Session> toSessions(List<sessionDTO> sessionEntities);
+    List<Session> toSessions(List<SessionDTO> sessionEntities);
 
     @InheritInverseConfiguration
     Session toSessionEntity(Session sessionDto);
     
-    List<sessionDTO> toSessionEntities(List<Session> sessionDtos);
+    List<SessionDTO> toSessionEntities(List<Session> sessionDtos);
 }

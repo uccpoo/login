@@ -1,6 +1,6 @@
 package login.demo.login.controller;
 
-import login.demo.login.domain.dto.sessionDTO;
+import login.demo.login.domain.dto.SessionDTO;
 import login.demo.login.domain.Service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

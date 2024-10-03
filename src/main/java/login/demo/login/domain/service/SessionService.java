@@ -15,6 +15,6 @@ public class SessionService {
     private SessionRepository sessionRepository;
 
     public List<Session> getAll() {
-        return sessionRepository.getAll();
+        return sessionRepository.getAllSession();
     }
 }

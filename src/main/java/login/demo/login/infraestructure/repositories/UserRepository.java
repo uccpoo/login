@@ -12,7 +12,7 @@ import login.demo.login.infraestructure.entities.User;
 import login.demo.login.infraestructure.mapper.UserMapper;
 
 @Repository
-public class UserRepository implements UserRepositoryInterface {
+public class UserRepository implements UserCrudRepositoryInterface {
 
     @Autowired
     private UserCrudRepository userCrudRepository;

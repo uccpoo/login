@@ -2,9 +2,10 @@ package login.demo.login.domain.repository;
 
 import java.util.List;
 
-import demo.login.domain.dto.User;
+import login.demo.login.domain.dto.UserDTO;
 
 public class UserRepository {
-    public List<User> getAllUsers() {
+    public List<UserDTO> getAllUsers() {
+        return null;
     }
 }

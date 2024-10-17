@@ -1,4 +1,4 @@
-package login.demo;
+package login.demo.login;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

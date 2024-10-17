@@ -9,10 +9,11 @@ import login.demo.login.domain.dto.RoleDTO;
 import login.demo.login.infraestructure.crud_interface.RoleCrudRepository;
 import login.demo.login.infraestructure.entities.Role;
 import login.demo.login.infraestructure.mapper.RoleMapper;
+import login.demo.login.infraestructure.repository.RoleRepository;
 
 
 @Repository
-public class RoleRepository implements RoleRepositoryInterface {
+public class RoleRepository implements RoleR|epository {
 
     @Autowired
     private RoleCrudRepository roleCrudRepository;

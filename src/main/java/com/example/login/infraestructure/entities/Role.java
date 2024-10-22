@@ -10,32 +10,39 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Roles")
+@Table(name = "Role")
 public class Role {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Role_ID")
-    private Long roleId;
+    private Integer roleId;
 
-    @Column(nullable = false, length = 50)
-    private String roleName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
+    @Column(name = "date_create")
     private Date dateCreate;
 
-    public Long getRoleId() {
+    @Column(name = "assignment_date")
+    private Date assignmentDate;
+
+    // Getters y Setters
+
+    public Integer getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Long roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getDateCreate() {
@@ -44,5 +51,13 @@ public class Role {
 
     public void setDateCreate(Date dateCreate) {
         this.dateCreate = dateCreate;
+    }
+
+    public Date getAssignmentDate() {
+        return assignmentDate;
+    }
+
+    public void setAssignmentDate(Date assignmentDate) {
+        this.assignmentDate = assignmentDate;
     }
 }

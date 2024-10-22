@@ -1,9 +1,11 @@
 package com.example.login.domain.dto;
 
+import java.util.Date;
+
 public class SessionDTO {
 
     private String token;      // Token de sesión
-    private long expiration;   // Tiempo de expiración de la sesión
+    private Date expiration;   // Tiempo de expiración de la sesión
 
     public String getToken() {
         return token;
@@ -13,11 +15,11 @@ public class SessionDTO {
         this.token = token;
     }
 
-    public long getExpiration() {
+    public Date getExpiration() {
         return expiration;
     }
 
-    public void setExpiration(long expiration) {
+    public void setExpiration(Date expiration) {
         this.expiration = expiration;
     }
 }

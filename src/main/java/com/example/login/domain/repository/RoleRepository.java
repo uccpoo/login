@@ -1,31 +1,19 @@
 package com.example.login.domain.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.example.login.infraestructure.entities.Role;
+import com.example.login.domain.dto.RoleDTO;
 
-public class RoleRepository {
+public interface RoleRepository {
+
     // Declarar una lista de roles
-    private List<Role> roles;
+    List<RoleDTO> getAllRoles();
 
-    // Constructor para inicializar la lista de roles
-    public RoleRepository() {
-        this.roles = new ArrayList<>(); // Inicializar la lista
-    }
+    RoleDTO getRoleById(Long id);
 
-    // Método para obtener todos los roles
-    public List<Role> getAllRoles() {
-        return roles; // Retorna la lista de roles
-    }
+    RoleDTO createRole(RoleDTO roleDTO);
 
-    // Método para encontrar un rol por su nombre
-    public Role findByRoleName(String roleName) {
-        for (Role role : roles) {
-            if (role.getRoleName().equals(roleName)) { // Compara el nombre del rol
-                return role; // Devuelve el rol encontrado
-            }
-        }
-        return null; // Retorna null si no se encuentra el rol
-    }
+    void deleteRole(Long id);
+
+    List<RoleDTO> findRolesByName(String name);
 }

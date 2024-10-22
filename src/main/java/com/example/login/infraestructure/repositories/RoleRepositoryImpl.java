@@ -9,9 +9,10 @@ import com.example.login.domain.dto.RoleDTO;
 import com.example.login.infraestructure.crud_interface.RoleCrudRepository;
 import com.example.login.infraestructure.entities.Role;
 import com.example.login.infraestructure.mapper.RoleMapper;
+import com.example.login.domain.repository.RoleRepository;
 
 @Repository
-public class RoleRepository {
+public class RoleRepositoryImpl implements RoleRepository {
 
     @Autowired
     private RoleCrudRepository roleCrudRepository;
@@ -44,6 +45,7 @@ public class RoleRepository {
     }
 
     // Puedes agregar otros métodos según sea necesario, por ejemplo:
+    @Override
     public List<RoleDTO> findRolesByName(String name) {
         List<Role> roles = roleCrudRepository.findByName(name);
         return roleMapper.toRoleDTOs(roles);

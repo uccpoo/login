@@ -11,8 +11,9 @@ import com.example.login.infraestructure.crud_interface.UserCrudRepository;
 import com.example.login.infraestructure.entities.User;
 import com.example.login.infraestructure.mapper.UserMapper;
 
+
 @Repository
-public class UserRepository implements UserCrudRepositoryInterface {
+public class UserRepositoryImpl extends UserRepository {
 
     @Autowired
     private UserCrudRepository userCrudRepository;

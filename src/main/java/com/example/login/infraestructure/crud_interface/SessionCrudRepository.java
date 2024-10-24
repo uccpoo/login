@@ -1,15 +1,14 @@
 package com.example.login.infraestructure.crud_interface;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
-
 import com.example.login.infraestructure.entities.Session;
+
+import java.util.List;
 
 public interface SessionCrudRepository extends CrudRepository<Session, Long> {
     
     // Busca sesiones por ID de usuario
-    List<Session> findByUserId(Long userId);
+    List<Session> findByUserId(Integer  userId);
     
     // Busca sesiones activas
     List<Session> findByIsActive(boolean isActive);

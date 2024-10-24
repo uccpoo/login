@@ -1,12 +1,14 @@
 package com.example.login.domain.service;
 
-import com.example.login.domain.repository.SessionRepository;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.login.domain.dto.SessionDTO;
 import com.example.login.infraestructure.entities.Session;
-
-
-import java.util.List;
+import com.example.login.domain.repository.SessionRepository;
 
 @Service
 public class SessionService {
@@ -14,30 +16,48 @@ public class SessionService {
     @Autowired
     private SessionRepository sessionRepository;
 
-    public List<Session> getAll() {
-        return sessionRepository.getAllSession();
+    public List<SessionDTO> getAllSessions() {
+        return sessionRepository.getAllSession().stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
-    // Método para obtener una sesión por ID
-    public Session getSessionById(Long id) {
-        Object sessionObject = sessionRepository.findById(id);
-        if (sessionObject == null) {
+    public SessionDTO getSessionById(Long id) {
+        return sessionRepository.getSessionById(id);
+    }
+
+    public SessionDTO createSession(SessionDTO sessionDTO) {
+        return sessionRepository.createSession(sessionDTO);
+    }
+
+    public void deleteSession(Long id) {
+        if (sessionRepository.existsById(id)) {
+            sessionRepository.deleteSession(id);
+        } else {
             throw new RuntimeException("Session not found");
         }
-        return (Session) sessionObject;
     }
 
-    // Método para crear una nueva sesión
-    public Session createSession(Session session) {
-        return sessionRepository.save(session);
+    public boolean sessionExists(Long id) {
+        return sessionRepository.existsById(id);
     }
 
-    // Método para eliminar una sesión por ID
-    public void deleteSession(int id) {
-        Long longId = Long.valueOf(id); // Convertir int a Long
-        if (!sessionRepository.existsById(longId)) {
-            throw new RuntimeException("Session not found");
+    public List<SessionDTO> findSessionsByUserId(Integer userId) {
+        return sessionRepository.findSessionsByUserId(userId);
+    }
+
+    private SessionDTO convertToDTO(Session session) {
+        if (session == null) {
+            return null;
         }
-        sessionRepository.deleteById(longId);
+        
+        SessionDTO dto = new SessionDTO();
+        dto.setSessionId(session.getSessionId());
+        dto.setUserId(session.getUser().getUserId()); 
+        dto.setToken(session.getToken());
+        dto.setDateCreate(session.getDateCreate());
+        dto.setAssignmentDate(session.getAssignmentDate());
+        // Set expiration logic here if needed
+        return dto;
     }
 }

@@ -3,52 +3,57 @@ package com.example.login.domain.dto;
 import java.time.LocalDateTime;
 
 public class UserDTO {
-    
-    private Integer userID;         // ID del usuario
-    private String username;        // Nombre de usuario
-    private String password;        // Contraseña
-    private LocalDateTime dateCreate; // Fecha de creación
-    private LocalDateTime assignmentDate; // Fecha de asignación
 
-    // Getters y Setters
+private Integer userID;         // ID del usuario
+private String username;        // Nombre de usuario
+private String password;        // Contraseña
+private LocalDateTime dateCreate; // Fecha de creación
+private LocalDateTime assignmentDate; // Fecha de asignación
 
-    public Integer getUserID() {
-        return userID;
-    }
+// Getters y Setters
 
-    public void setUserID(Integer userID) {
-        this.userID = userID;
-    }
+public Integer getUserID() {
+    return userID;
+}
 
-    public String getUsername() {
-        return username;
-    }
+public void setUserID(Integer userID) {
+    this.userID = userID;
+}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+public String getUsername() {
+    return username;
+}
 
-    public String getPassword() {
-        return password;
-    }
+public void setUsername(String username) {
+    this.username = username;
+}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+public String getPassword() {
+    return password;
+}
 
-    public LocalDateTime getDateCreate() {
-        return dateCreate;
-    }
+public void setPassword(String password) {
+    this.password = password;
+}
 
-    public void setDateCreate(LocalDateTime dateCreate) {
-        this.dateCreate = dateCreate;
-    }
+public LocalDateTime getDateCreate() {
+    return dateCreate;
+}
 
-    public LocalDateTime getAssignmentDate() {
-        return assignmentDate;
-    }
+public void setDateCreate(LocalDateTime dateCreate) {
+    this.dateCreate = dateCreate;
+}
 
-    public void setAssignmentDate(LocalDateTime assignmentDate) {
-        this.assignmentDate = assignmentDate;
-    }
+public LocalDateTime getAssignmentDate() {
+    return assignmentDate;
+}
+
+public void setAssignmentDate(LocalDateTime assignmentDate) {
+    this.assignmentDate = assignmentDate;
+}
+
+public UserDTO orElse(Object object) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'orElse'");
+}
 }

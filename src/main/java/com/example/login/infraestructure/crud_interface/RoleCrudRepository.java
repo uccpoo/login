@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface RoleCrudRepository extends CrudRepository<Role, Long> {
     
-    List<Role> findByName(String name);
+    //List<Role> findByName(String name);
     
 }

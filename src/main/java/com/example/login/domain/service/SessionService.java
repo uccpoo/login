@@ -22,7 +22,7 @@ public class SessionService {
                 .collect(Collectors.toList());
     }
 
-    public SessionDTO getSessionById(Long id) {
+    public SessionDTO getSessionById(Integer id) {
         return sessionRepository.getSessionById(id);
     }
 
@@ -30,7 +30,7 @@ public class SessionService {
         return sessionRepository.createSession(sessionDTO);
     }
 
-    public void deleteSession(Long id) {
+    public void deleteSession(Integer id) {
         if (sessionRepository.existsById(id)) {
             sessionRepository.deleteSession(id);
         } else {
@@ -38,7 +38,7 @@ public class SessionService {
         }
     }
 
-    public boolean sessionExists(Long id) {
+    public boolean sessionExists(Integer id) {
         return sessionRepository.existsById(id);
     }
 

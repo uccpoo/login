@@ -10,13 +10,13 @@ public interface SessionRepository {
     
     List<Session> getAllSession();
 
-    SessionDTO getSessionById(Long id);
+    SessionDTO getSessionById(Integer id);
 
     SessionDTO createSession(SessionDTO sessionDTO);
 
-    void deleteSession(Long id);
+    void deleteSession(Integer id);
 
-    boolean existsById(Long id);
+    boolean existsById(Integer id);
 
     List<SessionDTO> findSessionsByUserId(Integer userId);
 }

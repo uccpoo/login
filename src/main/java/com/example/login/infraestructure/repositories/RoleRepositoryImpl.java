@@ -44,10 +44,16 @@ public class RoleRepositoryImpl implements RoleRepository {
         roleCrudRepository.deleteById(id);
     }
 
-    // Puedes agregar otros métodos según sea necesario, por ejemplo:
     @Override
     public List<RoleDTO> findRolesByName(String name) {
-        List<Role> roles = roleCrudRepository.findByName(name);
-        return roleMapper.toRoleDTOs(roles);
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findRolesByName'");
     }
+
+    // Puedes agregar otros métodos según sea necesario, por ejemplo:
+    // @Override
+    // public List<RoleDTO> findRolesByName(String name) {
+    //     List<Role> roles = roleCrudRepository.findByName(name);
+    //     return roleMapper.toRoleDTOs(roles);
+    // }
 }

@@ -24,7 +24,7 @@ public class SessionController {
 
     // Obtener sesión por ID
     @GetMapping("/{id}")
-    public ResponseEntity<SessionDTO> getSessionById(@PathVariable Long id) {
+    public ResponseEntity<SessionDTO> getSessionById(@PathVariable Integer id) {
         SessionDTO session = sessionService.getSessionById(id);
         if (session == null) {
             return ResponseEntity.notFound().build();
@@ -41,7 +41,7 @@ public class SessionController {
 
     // Eliminar sesión
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSession(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteSession(@PathVariable Integer id) {
         try {
             sessionService.deleteSession(id);
             return ResponseEntity.noContent().build();
@@ -52,7 +52,7 @@ public class SessionController {
 
     // Verificar existencia de sesión
     @GetMapping("/exists/{id}")
-    public ResponseEntity<Boolean> sessionExists(@PathVariable Long id) {
+    public ResponseEntity<Boolean> sessionExists(@PathVariable Integer id) {
         boolean exists = sessionService.sessionExists(id);
         return ResponseEntity.ok(exists);
     }

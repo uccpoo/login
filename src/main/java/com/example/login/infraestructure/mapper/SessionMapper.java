@@ -1,8 +1,11 @@
 package com.example.login.infraestructure.mapper;
 
+import org.mapstruct.Mapper;
+
 import com.example.login.domain.dto.SessionDTO;
 import com.example.login.infraestructure.entities.Session;
 
+@Mapper(componentModel = "spring")
 public class SessionMapper {
 
     // Convertir Session a SessionDTO

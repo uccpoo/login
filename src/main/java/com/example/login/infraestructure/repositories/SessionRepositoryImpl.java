@@ -25,11 +25,12 @@ public class SessionRepositoryImpl implements SessionRepository {
 
     @Override
     public List<Session> getAllSession() {
-        return sessionCrudRepository.findAll();
+        return (List<Session>) sessionCrudRepository.findAll();
     }
 
     @Override
-    public SessionDTO getSessionById(Long id) {
+    public SessionDTO getSessionById(Integer id) {
+
         return sessionCrudRepository.findById(id)
                 .map(SessionMapper::toDTO)
                 .orElse(null);
@@ -43,12 +44,12 @@ public class SessionRepositoryImpl implements SessionRepository {
     }
 
     @Override
-    public void deleteSession(Long id) {
+    public void deleteSession(Integer id) {
         sessionCrudRepository.deleteById(id);
     }
 
     @Override
-    public boolean existsById(Long id) {
+    public boolean existsById(Integer id) {
         return sessionCrudRepository.existsById(id);
     }
 
